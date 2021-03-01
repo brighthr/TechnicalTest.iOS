@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2DBA14523B0FC3A3D13330EE /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA1E2729C46B346322DC92 /* Post.swift */; };
+		2DBA171B634A994D6DF6CD09 /* Post+Fetching.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA16D23FC107B1F813F82D /* Post+Fetching.swift */; };
 		FA166B8525ED248300A85D66 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA166B8425ED248300A85D66 /* AppDelegate.swift */; };
 		FA166B8925ED248300A85D66 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA166B8825ED248300A85D66 /* ViewController.swift */; };
 		FA166B8C25ED248300A85D66 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA166B8A25ED248300A85D66 /* Main.storyboard */; };
@@ -26,6 +28,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2DBA16D23FC107B1F813F82D /* Post+Fetching.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Post+Fetching.swift"; sourceTree = "<group>"; };
+		2DBA1E2729C46B346322DC92 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		FA166B8125ED248300A85D66 /* TechTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TechTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA166B8425ED248300A85D66 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FA166B8825ED248300A85D66 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -56,6 +60,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2DBA18BFDCA808CB37488B4D /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				2DBA1E2729C46B346322DC92 /* Post.swift */,
+				2DBA16D23FC107B1F813F82D /* Post+Fetching.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
 		FA166B7825ED248300A85D66 = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +96,7 @@
 				FA166B8D25ED248300A85D66 /* Assets.xcassets */,
 				FA166B8F25ED248300A85D66 /* LaunchScreen.storyboard */,
 				FA166B9225ED248300A85D66 /* Info.plist */,
+				2DBA18BFDCA808CB37488B4D /* Data */,
 			);
 			path = TechTest;
 			sourceTree = "<group>";
@@ -198,6 +212,8 @@
 			files = (
 				FA166B8925ED248300A85D66 /* ViewController.swift in Sources */,
 				FA166B8525ED248300A85D66 /* AppDelegate.swift in Sources */,
+				2DBA14523B0FC3A3D13330EE /* Post.swift in Sources */,
+				2DBA171B634A994D6DF6CD09 /* Post+Fetching.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
