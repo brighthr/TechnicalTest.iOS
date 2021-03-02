@@ -9,18 +9,38 @@ final class PostDetailsViewController: UIViewController {
 
     // MARK: - Properties
 
-    var post: Post!
+    var postID: Int!
+    private var loadedPost: Post?
 
     @IBOutlet private(set) var titleLabel: UILabel!
     @IBOutlet private(set) var bodyLabel: UILabel!
+    @IBOutlet private(set) var activityIndicator: UIActivityIndicatorView!
 
     // MARK: - UIViewController Overrides
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
 
-        title = "Post"
-        titleLabel.text = post.title
-        bodyLabel.text = post.body
+        if loadedPost == nil {
+            activityIndicator.startAnimating()
+            title = "Loading…"
+
+            Post.loadPost(withID: postID) { [weak self] result in
+                DispatchQueue.main.async {
+                    switch result {
+                    case .success(let post):
+                        self?.loadedPost = post
+                        self?.title = post.title
+                        self?.titleLabel.text = post.title
+                        self?.bodyLabel.text = post.body
+
+                    case .failure:
+                        break
+                    }
+
+                    self?.activityIndicator.stopAnimating()
+                }
+            }
+        }
     }
 }

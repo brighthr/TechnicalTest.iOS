@@ -60,7 +60,7 @@ final class PostListViewController: UITableViewController, PostListViewing {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let post = displayedPosts[indexPath.row]
         let detailsViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PostDetailsViewController") as! PostDetailsViewController
-        detailsViewController.post = post
+        detailsViewController.postID = post.id
         navigationController?.pushViewController(detailsViewController, animated: true)
     }
 }
