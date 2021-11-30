@@ -58,15 +58,16 @@ Included in the starter repository:
 
 - The project should build for iOS 13+.
 - Should be written in Swift 5 or newer.
-- The project should build and run without warnings in Xcode 12.4.
+- The project should build and run without warnings in Xcode 12.4 or newer.
 - The app should scale from the iPhone SE to the iPhone 12 Pro Max.
-- All screens should be accessible using VoiceOver.
 - Error handling should be considered.
-- You can use whatever packages you like but be prepared to justify your
+- You can use third party packages but be prepared to justify your
   choices.
 - You don't have to write tests if you feel you don't have time but you should
   write your code as though you were going to write tests.
 
 ## Submission
 
-Please submit a compressed git repository containing your code.
+Please submit a compressed git repository containing your code 
+or provide us a link to your repository. 
+Please commit regularly as you carry out the task and keep the commit history in tact.
