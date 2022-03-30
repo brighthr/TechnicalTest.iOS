@@ -8,7 +8,7 @@ each post's body. Tapping a post opens a post details screen that displays the
 title and complete body of the post.
 
 The architecture of the starting application is deliberately poor. We're
-interested in seeing how you tackle working on legacy code.
+interested in seeing how you could improve the architecture to make it more testable.
 
 ## The API
 
