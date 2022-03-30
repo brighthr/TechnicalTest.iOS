@@ -56,15 +56,14 @@ Included in the starter repository:
 
 ## Requirements
 
-- The project should build for iOS 13+.
+- The project should build for iOS 14+.
 - Should be written in Swift 5 or newer.
-- The project should build and run without warnings in Xcode 12.4 or newer.
+- The project should build and run without warnings in Xcode 13 or newer.
 - The app should scale from the iPhone SE to the iPhone 12 Pro Max.
 - Error handling should be considered.
 - You can use third party packages but be prepared to justify your
   choices.
-- You don't have to write tests if you feel you don't have time but you should
-  write your code as though you were going to write tests.
+- Submission must include unit tests.
 
 ## Submission
 
