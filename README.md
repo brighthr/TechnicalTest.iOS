@@ -69,4 +69,5 @@ Included in the starter repository:
 
 Please submit a compressed git repository containing your code 
 or provide us a link to your repository. 
-Please commit regularly as you carry out the task and keep the commit history in tact.
+Please commit regularly as you carry out the task and keep the commit history in tact. 
+We would love to see if you can devlop the feature using TDD.
