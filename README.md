@@ -8,7 +8,8 @@ each post's body. Tapping a post opens a post details screen that displays the
 title and complete body of the post.
 
 The architecture of the starting application is deliberately poor. We're
-interested in seeing how you could upgrade the codebase using good design patterns and swiftUI.
+interested in seeing how you could upgrade the codebase using good design patterns and swiftUI. 
+Rewrite the whole app using SwiftUI using MVVM is also an option.
 
 ## The API
 
@@ -56,17 +57,17 @@ Included in the starter repository:
 
 ## Requirements
 
+- Submission must have a good unit test coverage.
 - The project should build for iOS 15+.
-- Should be written in Swift 5 or newer.
+- UI should be written/convert into SwiftUI.
 - The project should build and run without warnings in Xcode 14.3 or newer.
 - The app should scale from the iPhone SE to the iPhone 14 Pro Max.
 - Error handling should be considered.
 - You can use third party packages but be prepared to justify your
   choices.
-- Submission must include unit tests.
 
 ## Submission
 
-Please provide us a link to your repository. 
+Please provide us a Github link to your submission. 
 Please commit regularly as you carry out the task and keep the commit history in tact. 
 We would love to see if you can devlop the feature using TDD.
