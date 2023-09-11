@@ -56,10 +56,10 @@ Included in the starter repository:
 
 ## Requirements
 
-- The project should build for iOS 14+.
+- The project should build for iOS 15+.
 - Should be written in Swift 5 or newer.
-- The project should build and run without warnings in Xcode 13 or newer.
-- The app should scale from the iPhone SE to the iPhone 12 Pro Max.
+- The project should build and run without warnings in Xcode 14.3 or newer.
+- The app should scale from the iPhone SE to the iPhone 14 Pro Max.
 - Error handling should be considered.
 - You can use third party packages but be prepared to justify your
   choices.
