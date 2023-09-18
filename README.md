@@ -71,3 +71,8 @@ Included in the starter repository:
 Please provide us a Github link to your submission. 
 Please commit regularly as you carry out the task and keep the commit history in tact. 
 We would love to see if you can devlop the feature using TDD.
+
+## Alternative
+
+If you have a good example project that demonstrates your coding skills, 
+you can choose to use that project for submission instead of working on the one above.
