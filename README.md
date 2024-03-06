@@ -9,7 +9,7 @@ title and complete body of the post.
 
 The architecture of the starting application is deliberately poor. We're
 interested in seeing how you could upgrade the codebase using good design patterns and swiftUI. 
-Rewrite the whole app using SwiftUI using MVVM is also an option.
+Rewrite the whole app using SwiftUI using MVVM or [composable architecture](https://pointfreeco.github.io/swift-composable-architecture/main/tutorials/meetcomposablearchitecture/) is also an option.
 
 ## The API
 
@@ -61,7 +61,7 @@ Included in the starter repository:
 - The project should build for iOS 15+.
 - UI should be written/convert into SwiftUI.
 - The project should build and run without warnings in Xcode 14.3 or newer.
-- The app should scale from the iPhone SE to the iPhone 14 Pro Max.
+- The app should scale from the iPhone SE to the iPhone 15 Pro Max.
 - Error handling should be considered.
 - You can use third party packages but be prepared to justify your
   choices.
