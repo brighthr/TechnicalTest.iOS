@@ -48,7 +48,7 @@ Upon returning to the main screen, indicate with a badge those questions for whi
 
 ## BONUS 
 
-Provide the option to filter questions by difficulty level and/or category as a bonus feature. 
+Provide the option to filter questions by difficulty level and/or category as a bonus feature
 
 ## Requirements
 
