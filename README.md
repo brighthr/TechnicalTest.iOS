@@ -1,59 +1,54 @@
 # Bright iOS Technical Test
 
-## The Starter Project
+## The project: A Trivia Question App 
 
-You're given an existing codebase that uses the JSON placeholder API to display
-a list of posts. The list includes the title of each post and an excerpt from
-each post's body. Tapping a post opens a post details screen that displays the
-title and complete body of the post.
+Ready to take on a fun challenge?  
+In this project, you'll create a simple trivia game app called 'Trivia Quest.' The app will test users' knowledge with a variety of questions. 
+You'll need to use your skills in Swift/SwiftUI to build an exciting and interactive trivia experience that will keep users hooked!
 
-The architecture of the starting application is deliberately poor. We're
-interested in seeing how you could upgrade the codebase using good design patterns and swiftUI. 
-Rewrite the whole app using SwiftUI using MVVM or [composable architecture](https://pointfreeco.github.io/swift-composable-architecture/main/tutorials/meetcomposablearchitecture/) is also an option.
+We're interested in seeing the architecture you will implement for the codebase, the design patterns and the user experience. 
 
 ## The API
 
-You will need to use the following endpoints from the [JSON
-placeholder](https://jsonplaceholder.typicode.com) API to complete the take home
+You will need to use the following endpoint from [Open Trivia DB](https://opentdb.com/api_config.php) API to complete the take home
 test:
 
-    GET https://jsonplaceholder.typicode.com/posts/
+    GET https://opentdb.com/api.php?amount=15
 
-    GET https://jsonplaceholder.typicode.com/posts/{POST_ID}/
-
-    GET https://jsonplaceholder.typicode.com/posts/{POST_ID}/comments/
-
-All endpoints return a JSON response.
+All endpoints return a JSON response 
 
 ## The Tasks
 
-1. Add a button to the post details screen that navigates to a new screen
-   showing a list of all comments on the post. Each item in the list should
-   show the author and body of the comment.
-2. Add a button to the post details screen that saves a post to be read
-   offline. The state of the button should reflect whether the post is saved to
-   read offline.
+### Task 1: Display Trivia Questions List
 
-   There should be a separate post list screen that displays only posts that
-   are saved for offline reading. It should look and behave identically to the
-   original post list screen.
+Create a screen that retrieves trivia questions from the Open Trivia Database API and displays them in a list format.
 
-   The original post list and the offline post list screens should be embedded
-   in a tabbed view. The tab item for the offline post list screen should be
-   badged with the number of offline posts that have been saved. The badge
-   value should update in the background (i.e., without having to open the
-   offline post list screen).
+- Fetch 15 trivia questions from the API (https://opentdb.com/api.php?amount=15).
+- Display each question in a list view, showing the level of difficulty, category, and the question itself.
 
-   Only details about the post have to be available to read offline. Post
-   comments do not have to be available offline (but it'd be nice if they are).
+### Task 2: Detailed Question Screen
 
-## Provided Resources
+Implement a screen that displays full details of a selected question when tapped.
 
-Included in the starter repository:
+- Upon tapping on a question from the list, navigate to a detailed screen.
+- Show the type, difficulty, category, question, correct answer, and incorrect answers.
+- Implement a self-explanatory UI indicator (ex. a badge) to distinguish between boolean and multiple-choice questions.
 
-- Some icons extracted from SFSymbols that you can use for the tasks.
-- API response bodies so you can complete the test if you're having connection
-  issues.
+### Task 3: Search functionality 
+
+Incorporate a search bar to allow users to search for specific questions based on keywords.
+
+- Implement a search bar to allow users to type in specific keywords for the search functionality.
+- Display search results questions that contains the search keyword typed in the search bar.
+Ex: the keyword was "how". Questions that contains the keyword "how" should be displayed in the results. 
+
+### Additional requirements 
+
+Upon returning to the main screen, indicate with a badge those questions for which the user has viewed details, to prevent unnecessary revisiting. 
+
+## BONUS 
+
+Provide the option to filter questions by difficulty level and/or category as a bonus feature. 
 
 ## Requirements
 
