@@ -60,6 +60,7 @@ Provide the option to filter questions by difficulty level and/or category as a 
 - Error handling should be considered.
 - You can use third party packages but be prepared to justify your
   choices.
+- Write the code using MVVM or [composable architecture](https://pointfreeco.github.io/swift-composable-architecture/main/tutorials/meetcomposablearchitecture/). 
 
 ## Submission
 
