@@ -53,10 +53,10 @@ Provide the option to filter questions by difficulty level and/or category as a 
 ## Requirements
 
 - Submission must have a good unit test coverage.
-- The project should build for iOS 15+.
+- The project should build for iOS 16+.
 - UI should be written/convert into SwiftUI.
-- The project should build and run without warnings in Xcode 14.3 or newer.
-- The app should scale from the iPhone SE to the iPhone 15 Pro Max.
+- The project should build and run without warnings with latest Xcode.
+- The app should scale from the iPhone SE to the iPhone Pro Max.
 - Error handling should be considered.
 - You can use third party packages but be prepared to justify your
   choices.
