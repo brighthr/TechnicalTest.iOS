@@ -1,12 +1,10 @@
 //  Copyright © 2025 BrightHR. All rights reserved.
 
-import Testing
 import ComposableArchitecture
-@testable import TCAExamples
+@testable import TechTask
+import Testing
 
-struct TCAExamplesTests {
-  
-  /// Add navigations tests
+struct TechTaskTests {
   
   @Test
   func example() async throws {
