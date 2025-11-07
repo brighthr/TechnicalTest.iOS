@@ -6,10 +6,6 @@
 	objectVersion = 77;
 	objects = {
 
-/* Begin PBXBuildFile section */
-		092D50B32D92AFB70094CA72 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 092D50B22D92AFB70094CA72 /* ComposableArchitecture */; };
-/* End PBXBuildFile section */
-
 /* Begin PBXContainerItemProxy section */
 		092D50952D92AF8D0094CA72 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -43,7 +39,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				092D50B32D92AFB70094CA72 /* ComposableArchitecture in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,7 +90,6 @@
 			);
 			name = TechTask;
 			packageProductDependencies = (
-				092D50B22D92AFB70094CA72 /* ComposableArchitecture */,
 			);
 			productName = TCAExamples;
 			productReference = 092D50832D92AF8A0094CA72 /* TechTask.app */;
@@ -153,7 +147,6 @@
 			mainGroup = 092D507A2D92AF8A0094CA72;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				092D50B12D92AFB70094CA72 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 092D50842D92AF8A0094CA72 /* Products */;
@@ -482,25 +475,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		092D50B12D92AFB70094CA72 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.19.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		092D50B22D92AFB70094CA72 /* ComposableArchitecture */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 092D50B12D92AFB70094CA72 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
-			productName = ComposableArchitecture;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 092D507B2D92AF8A0094CA72 /* Project object */;
 }
