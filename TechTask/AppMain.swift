@@ -3,10 +3,10 @@
 import SwiftUI
 
 @main
-struct AppMain: App {
-  var body: some Scene {
-    WindowGroup {
-      Text("Hello world")
+struct WeatherNowApp: App {
+    var body: some Scene {
+        WindowGroup {
+            ContentView()
+        }
     }
-  }
 }
