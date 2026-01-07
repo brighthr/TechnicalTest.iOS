@@ -1,8 +1,8 @@
 Technical Test (iOS)
 
 Choose one task to complete at home:
-- Settings task: `EnvironmentSettings/SettingsTask.md`
-- TCA task: `TCA/TCA.md`
+- Settings task: [`EnvironmentSettings/SettingsTask.md`](EnvironmentSettings/SettingsTask.md)
+- TCA task: [`TCA/TCA.md`](TCA/TCA.md)
 
 Instructions
 - Read the chosen task file fully before you start.
