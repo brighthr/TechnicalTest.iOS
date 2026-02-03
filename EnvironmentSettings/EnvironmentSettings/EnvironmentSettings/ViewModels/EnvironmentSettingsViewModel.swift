@@ -43,8 +43,10 @@ final class EnvironmentSettingsViewModel {
     }
 
     func toggleFeatureOverride(_ enabled: Bool) {
-        state.isFeatureOverrideEnabled = enabled
-        featureSwitchWorker.updateFeatureOverride(isOn: enabled)
+        withAnimation(.bouncy) {
+            state.isFeatureOverrideEnabled = enabled
+            featureSwitchWorker.updateFeatureOverride(isOn: enabled)
+        }
     }
 
     func toggleFeature(_ feature: FeatureToggle) {
