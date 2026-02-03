@@ -14,7 +14,7 @@ class BHRFeatureSwitchRepository: BHRFeatureSwitchRepositoryProtocol {
   func setFeatureToggles(_ featureToggles: [BHRFeatureToggle]?) {
     userDefaultStore.setFeatureToggles(featureToggles)
     
-    if let sicknessPaidCertifiedToggle = featureToggles?.first(where: { $0.featureName == BHRFeatureSwitch.sicknessPaidCertified }) {
+      if (featureToggles?.first(where: { $0.featureName == BHRFeatureSwitch.sicknessPaidCertified })) != nil {
     }
   }
 

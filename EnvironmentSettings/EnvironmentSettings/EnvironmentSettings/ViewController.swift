@@ -9,7 +9,7 @@ class ViewController: UIViewController {
   }
 
   @IBAction func switchButtonTapped(_: Any) {
-    if let environmentVC = UIStoryboard(name: "Environment", bundle: nil).instantiateViewController(withIdentifier: "environmentNC") as? UINavigationController, let vc = environmentVC.topViewController as? BHREnvironmentViewController {
+      if let environmentVC = UIStoryboard(name: "Environment", bundle: nil).instantiateViewController(withIdentifier: "environmentNC") as? UINavigationController, _ = environmentVC.topViewController as? BHREnvironmentViewController {
       self.present(environmentVC, animated: true, completion: nil)
     }
   }
