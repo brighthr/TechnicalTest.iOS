@@ -24,14 +24,14 @@ final class EnvironmentSettingsViewModel {
     }
     
     func selectOAuthEnvironment(_ environment: EnvironmentName) {
-        
+        environmentStore.activeEnvironment = environment
     }
     
     func toggleFeatureOverride(_ enabled: Bool) {
-        
+        featureSwitchWorker.updateFeatureOverride(isOn: enabled)
     }
     
     func toggleFeature(_ feature: FeatureToggle) {
-        
+      //TODO: finish feature toggles
     }
 }
