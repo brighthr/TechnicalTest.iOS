@@ -14,7 +14,7 @@ protocol BHRFeatureSwitchWorkerProtocol: FeatureSwitchTesting {
 }
 
 class BHRFeatureSwitchWorker: NSObject, BHRFeatureSwitchWorkerProtocol {
-  var featureSwitchRepository: BHRFeatureSwitchRepositoryProtocol = BHRFeatureSwitchRepository()
+  private var featureSwitchRepository: BHRFeatureSwitchRepositoryProtocol = BHRFeatureSwitchRepository()
 
   func setFeatureToggles(_ featureToggles: [BHRFeatureToggle]) {
     featureSwitchRepository.setFeatureToggles(featureToggles)
