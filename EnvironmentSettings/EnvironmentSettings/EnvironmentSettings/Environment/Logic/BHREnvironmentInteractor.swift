@@ -9,80 +9,65 @@ protocol BHREnvironmentInteractorProtocol {
 }
 
 class BHREnvironmentInteractor: BHREnvironmentInteractorProtocol {
-  var presenter: BHREnvironmentPresenterProtocol!
-  var endPointWorker: BHREndPointWorkerProtocol = BHREndPointWorker()
-  lazy var environmentStore: EnvironmentStoring = EnvironmentStore.shared
-  var featureSwitchWorker: BHRFeatureSwitchWorkerProtocol = BHRFeatureSwitchWorker()
-
-  private var endpoints: [BHREndPoint] = []
-  var features: [BHRFeatureToggle]?
-
-  var defaultFeatureToggles: [BHRFeatureToggle] = [.init(featureName: BHRFeatureSwitch.praise, isEnabled: false)]
-
-  private let oAuthEnvironments: [(environment: EnvironmentName, endpoint: BHREndPoint)] = EnvironmentName.allCases
-    .map { environment in
-      let oAuthEnvironment = BRTOAuthEnvironment(named: environment)
-      return (
-        environment,
-        BHREndPoint(name: oAuthEnvironment.description, basedURL: oAuthEnvironment.baseURL.absoluteString)
-      )
+    var presenter: BHREnvironmentPresenterProtocol!
+    lazy var environmentStore: EnvironmentStoring = EnvironmentStore.shared
+    var featureSwitchWorker: BHRFeatureSwitchWorkerProtocol = BHRFeatureSwitchWorker()
+    
+    private var endpoints: [BHREndPoint] = []
+    var features: [BHRFeatureToggle]?
+    
+    var defaultFeatureToggles: [BHRFeatureToggle] = [.init(featureName: BHRFeatureSwitch.praise, isEnabled: false)]
+    
+    private let oAuthEnvironments: [(environment: EnvironmentName, endpoint: BHREndPoint)] = EnvironmentName.allCases
+        .map { environment in
+            let oAuthEnvironment = BRTOAuthEnvironment(named: environment)
+            return (
+                environment,
+                BHREndPoint(name: oAuthEnvironment.description, basedURL: oAuthEnvironment.baseURL.absoluteString)
+            )
+        }
+    
+    func getEnviroments() {
+        features = featureSwitchWorker.getFeatureToggles()
+        if features == nil || features?.isEmpty == true {
+            features = defaultFeatureToggles
+            featureSwitchWorker.setFeatureToggles(defaultFeatureToggles)
+        }
+        let isFeatureOverrideOn = featureSwitchWorker.getFeatureOverridePreference()
+        
+        presenter.present(endPoints: endpoints,
+                          active: .init(name: "", basedURL: ""),
+                          isFeatureOverrideOn: isFeatureOverrideOn,
+                          features: features!)
     }
-
-  func getEnviroments() {
-    endpoints = endPointWorker.getAllEndPoints() ?? []
-    var activeEndpoint = endPointWorker.getEndPoint()
-    for endPoint in endpoints {
-      if endPoint.basedURL == activeEndpoint.basedURL {
-        activeEndpoint = endPoint
-      }
+    
+    func updateCurrentEndPoint(index: Int) {
+        let selectedEnvironment = endpoints[index]
+        
+        presenter.present(endPoints: endpoints,
+                          active: selectedEnvironment,
+                          isFeatureOverrideOn: false,
+                          features: features!)
     }
-
-    if let (_, oAuthEndpoint) = oAuthEnvironments.first(where: { $0.endpoint.basedURL == activeEndpoint.basedURL }) {
-      activeEndpoint = oAuthEndpoint
+    
+    func updateOAuthSelection(index: Int) {
+        let (activeEnvironment, activeEndpoint) = oAuthEnvironments[index]
+        
+        environmentStore.activeEnvironment = activeEnvironment
+        presenter.present(active: activeEndpoint)
     }
-
-    features = featureSwitchWorker.getFeatureToggles()
-    if features == nil || features?.isEmpty == true {
-      features = defaultFeatureToggles
-      featureSwitchWorker.setFeatureToggles(defaultFeatureToggles)
+    
+    func updateFeatureSwitch(index: Int, isOn: Bool) {
+        guard var features else { return }
+        for idx in 0 ... features.count where idx == index {
+            features[idx].isEnabled = isOn
+        }
+        
+        featureSwitchWorker.setFeatureToggles(features)
     }
-    let isFeatureOverrideOn = featureSwitchWorker.getFeatureOverridePreference()
-
-    presenter.present(endPoints: endpoints,
-                      active: activeEndpoint,
-                      isFeatureOverrideOn: isFeatureOverrideOn,
-                      features: features!)
-  }
-
-  func updateCurrentEndPoint(index: Int) {
-    let selectedEnvironment = endpoints[index]
-    endPointWorker.setEndPoint(selectedEnvironment)
-
-    presenter.present(endPoints: endpoints,
-                      active: selectedEnvironment,
-                      isFeatureOverrideOn: false,
-                      features: features!)
-  }
-
-  func updateOAuthSelection(index: Int) {
-    let (activeEnvironment, activeEndpoint) = oAuthEnvironments[index]
-
-    environmentStore.activeEnvironment = activeEnvironment
-    endPointWorker.setEndPoint(activeEndpoint)
-    presenter.present(active: activeEndpoint)
-  }
-
-  func updateFeatureSwitch(index: Int, isOn: Bool) {
-    guard var features else { return }
-    for idx in 0 ... features.count where idx == index {
-      features[idx].isEnabled = isOn
+    
+    func updateFeatureOverride(isOn: Bool) {
+        featureSwitchWorker.updateFeatureOverride(isOn: isOn)
+        getEnviroments()
     }
-
-    featureSwitchWorker.setFeatureToggles(features)
-  }
-
-  func updateFeatureOverride(isOn: Bool) {
-    featureSwitchWorker.updateFeatureOverride(isOn: isOn)
-    getEnviroments()
-  }
 }
