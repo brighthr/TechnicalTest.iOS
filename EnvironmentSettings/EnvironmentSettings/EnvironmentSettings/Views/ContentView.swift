@@ -13,7 +13,12 @@ struct ContentView: View {
         NavigationStack {
             VStack {
                 environmentStatusView
+                NavigationLink("Configure Settings") {
+                    EnvironmentSettingsView(viewModel: viewModel)
+                }
+                .buttonStyle(.glassProminent)
             }
+            .navigationTitle("Environment")
         }
     }
 }
