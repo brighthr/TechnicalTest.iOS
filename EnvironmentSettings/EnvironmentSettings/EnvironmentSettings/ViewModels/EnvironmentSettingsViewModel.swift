@@ -9,29 +9,51 @@ import SwiftUI
 
 @Observable
 final class EnvironmentSettingsViewModel {
-    var state: EnvironmentSettingsState
-    
-    private let environmentStore: EnvironmentStore
-    private let featureSwitchWorker: BHRFeatureSwitchWorker
-    
-    init(state: EnvironmentSettingsState,
-         environmentStore: EnvironmentStore,
-         featureSwitchWorker: BHRFeatureSwitchWorker
+    private(set) var state: EnvironmentSettingsState
+
+    private let environmentStore: EnvironmentStoring
+    private let featureSwitchWorker: BHRFeatureSwitchWorkerProtocol
+
+    convenience init() {
+        self.init(
+            environmentStore: EnvironmentStore.shared,
+            featureSwitchWorker: BHRFeatureSwitchWorker()
+        )
+    }
+
+    init(
+        environmentStore: EnvironmentStoring,
+        featureSwitchWorker: BHRFeatureSwitchWorkerProtocol
     ) {
-        self.state = state
         self.environmentStore = environmentStore
         self.featureSwitchWorker = featureSwitchWorker
+
+        self.state = EnvironmentSettingsState(
+            selectedOAuthEnvironment: environmentStore.activeEnvironment,
+            isFeatureOverrideEnabled: featureSwitchWorker.getFeatureOverridePreference(),
+            featureToggles: (featureSwitchWorker.getFeatureToggles() ?? []).map {
+                FeatureToggle(id: $0.featureName, displayName: $0.featureName, isEnabled: $0.isEnabled)
+            }
+        )
     }
-    
+
     func selectOAuthEnvironment(_ environment: EnvironmentName) {
+        state.selectedOAuthEnvironment = environment
         environmentStore.activeEnvironment = environment
     }
-    
+
     func toggleFeatureOverride(_ enabled: Bool) {
+        state.isFeatureOverrideEnabled = enabled
         featureSwitchWorker.updateFeatureOverride(isOn: enabled)
     }
-    
+
     func toggleFeature(_ feature: FeatureToggle) {
-      //TODO: finish feature toggles
+        guard let index = state.featureToggles.firstIndex(where: { $0.id == feature.id }) else { return }
+        state.featureToggles[index].isEnabled.toggle()
+
+        let toggles = state.featureToggles.map {
+            BHRFeatureToggle(featureName: $0.id, isEnabled: $0.isEnabled)
+        }
+        featureSwitchWorker.setFeatureToggles(toggles)
     }
 }
