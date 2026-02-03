@@ -280,3 +280,4 @@ tags
 **/xcshareddata/WorkspaceSettings.xcsettings
 
 # End of https://www.gitignore.io/api/osx,swift,xcode,emacs,appcode,vim
+/TCA/TechTask.xcodeproj/project.xcworkspace/xcshareddata/swiftpm
