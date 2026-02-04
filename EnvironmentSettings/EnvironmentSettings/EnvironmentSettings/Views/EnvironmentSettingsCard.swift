@@ -19,7 +19,7 @@ struct EnvironmentSettingsCard: View {
                 Spacer()
                 Text(environment.description)
                     .fontWeight(.semibold)
-                    .foregroundStyle(.red)
+                    .foregroundStyle(environmentColor)
             }
             
             Divider()
@@ -48,7 +48,16 @@ struct EnvironmentSettingsCard: View {
         isOverrideEnabled: true
     )
 }
+
 private extension EnvironmentSettingsCard {
+    var environmentColor: Color {
+        switch environment {
+        case .live: return .red      // Production - high risk
+        case .uat: return .orange    // Staging - medium risk
+        default: return .blue        // QA environments - low risk
+        }
+    }
+    
     var accessibilityDescription: String {
         let overrideStatus = isOverrideEnabled ? "enabled" : "disabled"
         return "Current environment is \(environment.description). Feature override is \(overrideStatus)."
