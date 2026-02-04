@@ -1,5 +1,4 @@
-
-import UIKit
+import Foundation
 
 protocol FeatureSwitchTesting {
   func isEnabledFeature(_ featureName: String) -> Bool
@@ -13,7 +12,7 @@ protocol BHRFeatureSwitchWorkerProtocol: FeatureSwitchTesting {
   func updateFeatureOverride(isOn: Bool)
 }
 
-class BHRFeatureSwitchWorker: NSObject, BHRFeatureSwitchWorkerProtocol {
+class BHRFeatureSwitchWorker: BHRFeatureSwitchWorkerProtocol {
   private var featureSwitchRepository: BHRFeatureSwitchRepositoryProtocol = BHRFeatureSwitchRepository()
 
   func setFeatureToggles(_ featureToggles: [BHRFeatureToggle]) {
