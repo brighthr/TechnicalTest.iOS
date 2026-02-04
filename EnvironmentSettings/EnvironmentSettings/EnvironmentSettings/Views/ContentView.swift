@@ -45,6 +45,7 @@ private extension ContentView {
             showSettings.toggle()
         }
         .buttonStyle(.glassProminent)
+        .accessibilityHint("Opens settings to change environment and feature toggles")
     }
     
     @ViewBuilder
@@ -65,6 +66,14 @@ private extension ContentView {
             .background(.regularMaterial)
             .clipShape(RoundedRectangle(cornerRadius: 14))
             .padding()
+            .accessibilityElement(children: .combine)
+            .accessibilityLabel(enabledOverridesAccessibilityLabel)
         }
+    }
+    
+    var enabledOverridesAccessibilityLabel: String {
+        let features = viewModel.enabledOverrides.map { $0.displayName.capitalized }
+        let featureList = features.joined(separator: ", ")
+        return "\(features.count) overrides enabled: \(featureList)"
     }
 }

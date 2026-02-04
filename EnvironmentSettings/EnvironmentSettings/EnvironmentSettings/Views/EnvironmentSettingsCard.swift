@@ -37,6 +37,8 @@ struct EnvironmentSettingsCard: View {
         .background(.regularMaterial)
         .clipShape(RoundedRectangle(cornerRadius: 14))
         .padding()
+        .accessibilityElement(children: .combine)
+        .accessibilityLabel(accessibilityDescription)
     }
 }
 
@@ -45,4 +47,10 @@ struct EnvironmentSettingsCard: View {
         environment: .live,
         isOverrideEnabled: true
     )
+}
+private extension EnvironmentSettingsCard {
+    var accessibilityDescription: String {
+        let overrideStatus = isOverrideEnabled ? "enabled" : "disabled"
+        return "Current environment is \(environment.description). Feature override is \(overrideStatus)."
+    }
 }
