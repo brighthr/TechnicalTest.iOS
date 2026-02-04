@@ -53,11 +53,6 @@
 			path = EnvironmentSettingsTests;
 			sourceTree = "<group>";
 		};
-		C909135E2F0D5A510058D124 /* EnvironmentSettingsUITests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = EnvironmentSettingsUITests;
-			sourceTree = "<group>";
-		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,7 +85,6 @@
 			children = (
 				C909133D2F0D5A4F0058D124 /* EnvironmentSettings */,
 				C90913542F0D5A510058D124 /* EnvironmentSettingsTests */,
-				C909135E2F0D5A510058D124 /* EnvironmentSettingsUITests */,
 				C909133C2F0D5A4F0058D124 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -166,9 +160,6 @@
 			dependencies = (
 				C909135D2F0D5A510058D124 /* PBXTargetDependency */,
 			);
-			fileSystemSynchronizedGroups = (
-				C909135E2F0D5A510058D124 /* EnvironmentSettingsUITests */,
-			);
 			name = EnvironmentSettingsUITests;
 			packageProductDependencies = (
 			);
@@ -205,6 +196,8 @@
 			knownRegions = (
 				en,
 				Base,
+				"en-NZ",
+				"en-AU",
 			);
 			mainGroup = C90913322F0D5A4F0058D124;
 			minimizedProjectReferenceProxies = 1;
