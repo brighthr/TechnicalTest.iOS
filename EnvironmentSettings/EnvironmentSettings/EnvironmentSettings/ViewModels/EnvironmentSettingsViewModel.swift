@@ -13,6 +13,10 @@ final class EnvironmentSettingsViewModel {
 
     private let environmentStore: EnvironmentStoring
     private let featureSwitchWorker: BHRFeatureSwitchWorkerProtocol
+    
+    var enabledOverrides: [FeatureToggle] {
+        state.featureToggles.filter({ $0.isEnabled })
+    }
 
     convenience init() {
         self.init(
