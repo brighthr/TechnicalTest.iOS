@@ -21,6 +21,7 @@ struct ContentView: View {
             }
             .sheet(isPresented: $showSettings, content: {
                 EnvironmentSettingsView(viewModel: viewModel)
+                    .presentationBackground(.thinMaterial)
             })
             .navigationTitle("Environment")
         }
